@@ -4,28 +4,21 @@ import { useState, useEffect } from 'react';
 import { Expense } from '@/types';
 
 export function useExpenses() {
-  const [expenses, setExpenses] = useState<Expense[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  // Load from local storage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem('expense-tracker-data');
-    if (stored) {
-      try {
-        setExpenses(JSON.parse(stored));
-      } catch (error) {
-        console.error('Failed to parse expenses from local storage');
-      }
+  const [expenses, setExpenses] = useState<Expense[]>(() => {
+    try {
+      const stored = localStorage.getItem('expense-tracker-data');
+      return stored ? (JSON.parse(stored) as Expense[]) : [];
+    } catch (error) {
+      console.error(`Failed to parse expenses from local storage ${error}`);
+      return [];
     }
-    setIsLoaded(true);
-  }, []);
+  });
 
-  // Save to local storage whenever expenses change
+  const isLoaded = true;
+
   useEffect(() => {
-    if (isLoaded) {
-      localStorage.setItem('expense-tracker-data', JSON.stringify(expenses));
-    }
-  }, [expenses, isLoaded]);
+    localStorage.setItem('expense-tracker-data', JSON.stringify(expenses));
+  }, [expenses]);
 
   const addExpense = (expense: Omit<Expense, 'id'>) => {
     const newExpense = { ...expense, id: crypto.randomUUID() };
