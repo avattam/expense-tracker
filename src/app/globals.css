@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Mastercard Brand Colors */
+  --color-ink-black: #141413;
+  --color-signal-orange: #CF4500;
+  --color-signal-orange-light: #F37338;
+  --color-clay-brown: #9A3A0A;
+  
+  /* Surface Colors */
+  --color-canvas-cream: #F3F0EE;
+  --color-lifted-cream: #FCFBFA;
+  --color-white: #FFFFFF;
+  --color-soft-bone: #F4F4F4;
+  
+  /* Text Colors */
+  --color-ink-black: #141413;
+  --color-charcoal: #262627;
+  --color-slate-gray: #696969;
+  --color-granite: #555555;
+  --color-graphite: #565656;
+  --color-dust-taupe: #D1CDC7;
+  
+  /* Accent Colors */
+  --color-link-blue: #3860BE;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+  --spacing-5xl: 128px;
+  
+  /* Border Radius - Mastercard Scale */
+  --rounded-xs: 4px;
+  --rounded-sm: 6px;
+  --rounded-md: 20px;
+  --rounded-lg: 24px;
+  --rounded-xl: 40px;
+  --rounded-2xl: 50%;
+  --rounded-pill: 999px;
+  
+  /* Shadows */
+  --shadow-nav: rgba(0, 0, 0, 0.04) 0px 4px 24px 0px;
+  --shadow-card: rgba(0, 0, 0, 0.08) 0px 24px 48px 0px;
+  --shadow-elevated: rgba(0, 0, 0, 0.25) 0px 70px 110px 0px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ink-black: var(--color-ink-black);
+  --color-signal-orange: var(--color-signal-orange);
+  --color-signal-orange-light: var(--color-signal-orange-light);
+  --color-clay-brown: var(--color-clay-brown);
+  --color-canvas-cream: var(--color-canvas-cream);
+  --color-lifted-cream: var(--color-lifted-cream);
+  --color-white: var(--color-white);
+  --color-soft-bone: var(--color-soft-bone);
+  --color-charcoal: var(--color-charcoal);
+  --color-slate-gray: var(--color-slate-gray);
+  --color-granite: var(--color-granite);
+  --color-graphite: var(--color-graphite);
+  --color-dust-taupe: var(--color-dust-taupe);
+  --color-link-blue: var(--color-link-blue);
+  --font-sans: var(--font-sofia);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-canvas-cream);
+  color: var(--color-ink-black);
+  font-family: var(--font-sofia), 'Sofia Sans', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
