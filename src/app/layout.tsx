@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sofia_Sans } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "./providers";
 
 const sofiaSans = Sofia_Sans({
   variable: "--font-sofia",
@@ -24,7 +25,9 @@ export default function RootLayout({
       lang="en"
       className={`${sofiaSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { useExpenses } from '@/hooks/useExpenses';
 import { CATEGORIES, Category, Expense } from '@/types';
 import { formatCurrency, exportToCSV } from '@/lib/utils';
+import { UserMenu } from '@/components/UserMenu';
 import { 
   PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip, Legend,
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid
@@ -143,23 +144,26 @@ export default function ExpenseTrackerApp() {
               </div>
               <h1 className="text-lg font-medium text-ink-black">ExpenseTracker</h1>
             </div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setActiveTab('dashboard')}
-                className={`px-4 py-2 text-sm font-medium rounded-md flex items-center gap-2 transition-colors ${
-                  activeTab === 'dashboard' ? 'bg-ink-black text-canvas-cream' : 'text-ink-black hover:bg-lifted-cream'
-                }`}
-              >
-                <LayoutDashboard size={16} /> <span className="hidden sm:inline">Dashboard</span>
-              </button>
-              <button
-                onClick={() => setActiveTab('expenses')}
-                className={`px-4 py-2 text-sm font-medium rounded-md flex items-center gap-2 transition-colors ${
-                  activeTab === 'expenses' ? 'bg-ink-black text-canvas-cream' : 'text-ink-black hover:bg-lifted-cream'
-                }`}
-              >
-                <ListOrdered size={16} /> <span className="hidden sm:inline">Expenses</span>
-              </button>
+            <div className="flex items-center gap-4">
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setActiveTab('dashboard')}
+                  className={`px-4 py-2 text-sm font-medium rounded-md flex items-center gap-2 transition-colors ${
+                    activeTab === 'dashboard' ? 'bg-ink-black text-canvas-cream' : 'text-ink-black hover:bg-lifted-cream'
+                  }`}
+                >
+                  <LayoutDashboard size={16} /> <span className="hidden sm:inline">Dashboard</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab('expenses')}
+                  className={`px-4 py-2 text-sm font-medium rounded-md flex items-center gap-2 transition-colors ${
+                    activeTab === 'expenses' ? 'bg-ink-black text-canvas-cream' : 'text-ink-black hover:bg-lifted-cream'
+                  }`}
+                >
+                  <ListOrdered size={16} /> <span className="hidden sm:inline">Expenses</span>
+                </button>
+              </div>
+              <UserMenu />
             </div>
           </nav>
         </div>
